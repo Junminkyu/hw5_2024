@@ -1,0 +1,173 @@
+/* Make an animation called logo_animation. Start at a width of 25px and grow to 475px. Also opacity start from 0 and end with 1  */
+@keyframes logo_animation{
+    0% {width: 25px;
+        opacity: 0; }
+    100% {width: 475px;
+        opacity: 1;}
+}
+
+/* logo id uses animation with 5s linear transition */
+#logo{
+    animation-name: logo_animation;
+    animation-duration: 5s;
+    transition-timing-function: linear;
+  }
+
+/* Body element uses Poppins font with serif as a backup 
+    Uses "concrete_seamless.png as a background image
+    Uses color of #f1f1f1 as a backup */
+body{
+    font-family:"Poppins",serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+  }
+  
+/* header uses flex with veritcal direction
+    Align every item at center */
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* nav_links class use flex with vertical direction */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling the link so that they have the same color (default color: blue) */
+a:visited{
+    color:blue;
+}
+
+/* For direct child of a card class, change background, border,
+    padding, and border radius */
+.card > header{
+    background-color: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* This is used for better shape formation */
+.card:nth-child(n){
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* pricing class uses flex and cards are centered both horizontally and vertically */
+.pricing{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Set initial size to 450px */
+.card {
+    flex-basis: 450px;
+    margin: 12px;
+    background: #fff;
+    border-radius: 7px;
+    padding: 0 0 25px 0;
+  
+}
+
+/* Added border, margin and width for images in the gallery class */
+.gallery img{
+    border: solid 10px #50C7C7;
+    margin:10px;
+    width:300px;
+}
+
+/* gallery class uses flex and images are centered both horizontally and vertically */
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+}
+
+
+@media screen and (min-width:900px){
+    /* Make logo as far to the left as possible and links as far to the right as possible */
+    header{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    /* make list in nav_links class horizontal */
+    .nav_links{
+      flex-direction: row;
+    }
+    /* make flex horizontal. Also card will be centered both vertically and horizontally*/
+    .pricing{
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    /* Make the initial size of the card to be 275px */
+    .card{
+      flex-basis: 275px;
+    }
+
+    /* Modifying the first header to remain visible at the top of the screen
+    even when we scroll down */
+    body>header{
+      display: inline-flexbox;
+      position:sticky;
+      top:0;
+      z-index: 2;
+    }
+}
+
+/* No animation when prefers-reduced-motion is selected */
+@media (prefers-reduced-motion: reduce) {
+    #logo{
+        animation: none;
+    }
+}
+
+@media print{
+    /* Change font into Arial and Helvetica (backup) */
+    body{
+        font-family: Arial,Helvetica;
+        background-image: none;
+    }
+
+    nav{
+        width:100%;
+    }
+
+    .nav_links{
+        width:100%;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .pricing{
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-end;
+      flex-wrap: nowrap;
+    }
+
+    .card{
+        border: solid 2px #45ADDD;
+        flex-basis:325px;
+    }
+
+    #gallery{
+        display:none;
+    }
+    .gallery{
+        display: none;
+    }
+
+    .card li:nth-child(2)::after{
+        content:"\1F44D";
+    }
+}
