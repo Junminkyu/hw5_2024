@@ -136,37 +136,38 @@ a:visited{
         font-family: Arial,Helvetica;
         background-image: none;
     }
-
+    /* make navbar take whole row*/
     nav{
         width:100%;
     }
-
+    /* make elements in nav bar spread equally*/
     .nav_links{
         width:100%;
         display:flex;
         flex-direction: row;
         justify-content: space-around;
     }
-
+    /* pricing elements align along the bottom */
     .pricing{
       flex-direction: row;
       justify-content: center;
       align-items: flex-end;
       flex-wrap: nowrap;
     }
-
+    /* Add solid border to card element */
     .card{
         border: solid 2px #45ADDD;
         flex-basis:325px;
     }
-
+    /* Make gallery invisible */
     #gallery{
         display:none;
     }
+    /* Make gallery invisible*/
     .gallery{
         display: none;
     }
-
+    /* Add thumbs up in the cards */
     .card li:nth-child(2)::after{
         content:"\1F44D";
     }
